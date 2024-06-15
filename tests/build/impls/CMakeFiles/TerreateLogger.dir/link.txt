@@ -1,2 +1,0 @@
-/usr/bin/ar qc libTerreateLogger.a CMakeFiles/TerreateLogger.dir/manager.cpp.o
-/usr/bin/ranlib libTerreateLogger.a
