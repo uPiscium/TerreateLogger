@@ -8,8 +8,11 @@ using namespace TerreateLogger::Defines;
 
 class LoggerBase {
 private:
-  using LogFunc = Func<Log(Log const &)>;
-  Vec<Log> mLogs;
+  using LogFunc = Func<LogData(LogData const &)>;
+
+protected:
+  Str mName;
+  Vec<LogData> mLogs;
   LogFunc mCritialCallback;
   LogFunc mErrorCallback;
   LogFunc mWarningCallback;
@@ -21,10 +24,11 @@ private:
   LoggerBase &operator=(LoggerBase const &) = delete;
 
 public:
-  LoggerBase() {}
+  LoggerBase(Str const &name) {}
   virtual ~LoggerBase() {}
 
-  virtual Vec<Log> const &GetLogs() const { return mLogs; }
+  Str const &GetName() const { return mName; }
+  virtual Vec<LogData> const &GetLogs() const { return mLogs; }
 
   virtual void SetCriticalCallback(LogFunc callback) {
     mCritialCallback = callback;
@@ -36,10 +40,10 @@ public:
   virtual void SetInfoCallback(LogFunc callback) { mInfoCallback = callback; }
   virtual void SetDebugCallback(LogFunc callback) { mDebugCallback = callback; }
 
-  virtual void Log(Log const &log) = 0;
+  virtual void Log(LogData const &log) = 0;
   virtual void Dump(Str const &path) = 0;
 
-  virtual LoggerBase &operator<<(struct Log const &log) = 0;
+  virtual LoggerBase &operator<<(LogData const &log) = 0;
 };
 
 } // namespace TerreateLogger::Base
