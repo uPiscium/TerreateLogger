@@ -11,9 +11,9 @@ cd build
 cmake ../..
 cmake --build .
 pwd
-cp tests/impls/TCTest ../
+cp tests/impls/TLTest ../
 cd ../
 pwd
-echo "Running TCTest..."
-./TCTest
+echo "Running TLTest..."
+./TLTest
 cd ../..

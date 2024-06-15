@@ -14,7 +14,7 @@ template <typename T> using Func = std::function<T>;
 
 enum class LogLevel { CRITICAL, ERROR, WARNING, INFO, DEBUG };
 
-struct Log {
+struct LogData {
   LogLevel level;
   Str file;
   Str func;
@@ -23,27 +23,9 @@ struct Log {
 };
 
 #define TLLOG(level, msg)                                                      \
-  TerreateLogger::Defines::Log {                                               \
+  TerreateLogger::Defines::LogData {                                           \
     level, Str(__FILE__), __func__, Str(__LINE__), msg                         \
   }
-
-/* class LoggerManager { */
-/* private: */
-/*   friend LoggerManager &GetManager(); */
-
-/*   Vec<LoggerBase *> mLoggers; */
-
-/* private: */
-/*   LoggerManager() {} */
-/*   LoggerManager(LoggerManager const &) = delete; */
-/*   LoggerManager &operator=(LoggerManager const &) = delete; */
-
-/* public: */
-/*   void Register(LoggerBase *logger) { mLoggers.push_back(logger); } */
-/*   void Log(Log const &log); */
-/*   void Dump(Str const &path); */
-/*   LoggerManager &operator<<(struct Log const &log); */
-/* }; */
 
 } // namespace TerreateLogger::Defines
 

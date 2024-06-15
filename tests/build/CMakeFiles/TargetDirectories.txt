@@ -1,0 +1,8 @@
+/home/uPiscium/Documents/Programs/TerreateLogger/tests/build/CMakeFiles/edit_cache.dir
+/home/uPiscium/Documents/Programs/TerreateLogger/tests/build/CMakeFiles/rebuild_cache.dir
+/home/uPiscium/Documents/Programs/TerreateLogger/tests/build/impls/CMakeFiles/TerreateLogger.dir
+/home/uPiscium/Documents/Programs/TerreateLogger/tests/build/impls/CMakeFiles/edit_cache.dir
+/home/uPiscium/Documents/Programs/TerreateLogger/tests/build/impls/CMakeFiles/rebuild_cache.dir
+/home/uPiscium/Documents/Programs/TerreateLogger/tests/build/tests/impls/CMakeFiles/TLTest.dir
+/home/uPiscium/Documents/Programs/TerreateLogger/tests/build/tests/impls/CMakeFiles/edit_cache.dir
+/home/uPiscium/Documents/Programs/TerreateLogger/tests/build/tests/impls/CMakeFiles/rebuild_cache.dir
