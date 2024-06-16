@@ -16,7 +16,7 @@ function(SetLibs)
 endfunction()
 
 function(Build)
-  add_library(${PROJECT_NAME} STATIC manager.cpp)
+  add_library(${PROJECT_NAME} STATIC defines.cpp logger.cpp manager.cpp)
   setincludes()
   setlibs()
 endfunction()

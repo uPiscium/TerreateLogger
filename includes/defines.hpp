@@ -2,6 +2,7 @@
 #define __TL_DEFINES_HPP__
 
 #include <functional>
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -14,6 +15,8 @@ template <typename T> using Func = std::function<T>;
 
 enum class LogLevel { CRITICAL, ERROR, WARNING, INFO, DEBUG };
 
+Str LogLevelToString(LogLevel const &level);
+
 struct LogData {
   LogLevel level;
   Str file;
@@ -24,9 +27,11 @@ struct LogData {
 
 #define TLLOG(level, msg)                                                      \
   TerreateLogger::Defines::LogData {                                           \
-    level, Str(__FILE__), __func__, Str(__LINE__), msg                         \
+    level, Str(__FILE__), Str(__func__), __LINE__, msg                         \
   }
 
 } // namespace TerreateLogger::Defines
 
+std::ostream &operator<<(std::ostream &stream,
+                         TerreateLogger::Defines::LogData const &log);
 #endif // __TL_DEFINES_HPP__
