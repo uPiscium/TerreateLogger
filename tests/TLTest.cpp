@@ -1,4 +1,4 @@
-#include "../../includes/TerreateLogger.hpp"
+#include "../includes/TerreateLogger.hpp"
 
 using namespace TerreateLogger::Defines;
 using namespace TerreateLogger::Manager;
