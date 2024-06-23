@@ -5,6 +5,6 @@ option(TERREATE_LOGGER_BUILD_TESTS "Build tests" ON)
 
 add_subdirectory(impls)
 
-if(BUILD_TESTS)
+if(TERREATE_LOGGER_BUILD_TESTS)
   add_subdirectory(tests)
 endif()
