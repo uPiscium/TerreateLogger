@@ -11,9 +11,8 @@ private:
   using LogFunc = Func<LogData(LogData const &)>;
 
 protected:
-  Str mName;
   Vec<LogData> mLogs;
-  LogFunc mCritialCallback;
+  LogFunc mCriticalCallback;
   LogFunc mErrorCallback;
   LogFunc mWarningCallback;
   LogFunc mInfoCallback;
@@ -24,14 +23,13 @@ private:
   LoggerBase &operator=(LoggerBase const &) = delete;
 
 public:
-  LoggerBase(Str const &name) {}
+  LoggerBase() {}
   virtual ~LoggerBase() {}
 
-  Str const &GetName() const { return mName; }
   virtual Vec<LogData> const &GetLogs() const { return mLogs; }
 
   virtual void SetCriticalCallback(LogFunc callback) {
-    mCritialCallback = callback;
+    mCriticalCallback = callback;
   }
   virtual void SetErrorCallback(LogFunc callback) { mErrorCallback = callback; }
   virtual void SetWarningCallback(LogFunc callback) {

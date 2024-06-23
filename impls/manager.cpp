@@ -27,4 +27,9 @@ void LoggerManager::Dump(Str const &path) {
     logger->Dump(path);
   }
 }
+
+void LoggerManager::Register(LoggerBase *logger) {
+  LoggerManager &manager = GetManager();
+  manager.mLoggers.push_back(logger);
+}
 } // namespace TerreateLogger::Manager
