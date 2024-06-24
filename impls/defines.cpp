@@ -17,7 +17,7 @@ Str LogLevelToString(LogLevel const &level) {
   case LogLevel::TRACE:
     return "TRACE";
   default:
-    return "*****";
+    return "UNKNOWN";
   }
 }
 } // namespace TerreateLogger::Defines
