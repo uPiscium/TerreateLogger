@@ -24,6 +24,7 @@ public:
   Vec<ILogger *> const &GetLoggers() const { return mLoggers; }
 
 public:
+  static Vec<ILogger *> const &AcquireLoggers();
   static void Log(LogData const &log);
   static void Dump(Str const &path);
   static void Register(ILogger *logger);
