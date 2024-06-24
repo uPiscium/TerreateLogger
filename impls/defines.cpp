@@ -14,6 +14,8 @@ Str LogLevelToString(LogLevel const &level) {
     return "INFO";
   case LogLevel::DEBUG:
     return "DEBUG";
+  case LogLevel::TRACE:
+    return "TRACE";
   default:
     return "*****";
   }
