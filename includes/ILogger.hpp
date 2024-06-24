@@ -6,7 +6,7 @@
 namespace TerreateLogger::Base {
 using namespace TerreateLogger::Defines;
 
-class LoggerBase {
+class ILogger {
 private:
   using LogFunc = Func<LogData(LogData const &)>;
 
@@ -19,12 +19,12 @@ protected:
   LogFunc mDebugCallback;
 
 private:
-  LoggerBase(LoggerBase const &) = delete;
-  LoggerBase &operator=(LoggerBase const &) = delete;
+  ILogger(ILogger const &) = delete;
+  ILogger &operator=(ILogger const &) = delete;
 
 public:
-  LoggerBase() {}
-  virtual ~LoggerBase() {}
+  ILogger() {}
+  virtual ~ILogger() {}
 
   virtual Vec<LogData> const &GetLogs() const { return mLogs; }
 
@@ -40,8 +40,6 @@ public:
 
   virtual void Log(LogData const &log) = 0;
   virtual void Dump(Str const &path) = 0;
-
-  virtual LoggerBase &operator<<(LogData const &log) = 0;
 };
 
 } // namespace TerreateLogger::Base

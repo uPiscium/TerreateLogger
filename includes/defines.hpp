@@ -13,7 +13,7 @@ using Str = std::string;
 template <typename T> using Vec = std::vector<T>;
 template <typename T> using Func = std::function<T>;
 
-enum class LogLevel { CRITICAL, ERROR, WARNING, INFO, DEBUG };
+enum class LogLevel { CRITICAL, ERROR, WARNING, INFO, DEBUG, TRACE };
 
 Str LogLevelToString(LogLevel const &level);
 
