@@ -28,7 +28,7 @@ void LoggerManager::Dump(Str const &path) {
   }
 }
 
-void LoggerManager::Register(LoggerBase *logger) {
+void LoggerManager::Register(ILogger *logger) {
   LoggerManager &manager = GetManager();
   manager.mLoggers.push_back(logger);
 }
