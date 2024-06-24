@@ -14,6 +14,11 @@ LoggerManager::~LoggerManager() {
   }
 }
 
+Vec<ILogger *> const &LoggerManager::AcquireLoggers() {
+  LoggerManager &manager = GetManager();
+  return manager.GetLoggers();
+}
+
 void LoggerManager::Log(LogData const &log) {
   LoggerManager &manager = GetManager();
   for (auto logger : manager.GetLoggers()) {

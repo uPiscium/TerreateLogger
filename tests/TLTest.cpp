@@ -35,13 +35,17 @@ public:
   void Dump(Str const &path) override {}
 };
 
-int main() {
-  BasicLogger *logger = new BasicLogger();
+void Register() {
+  ILogger *logger = new BasicLogger();
   logger->SetInfoCallback([](LogData const &log) {
-    std::cout << log.msg << std::endl;
+    std::cout << "INFO: " << log << std::endl;
     return log;
   });
   LoggerManager::Register(logger);
+}
+
+int main() {
+  Register();
   LoggerManager::Log(TLLOG(LogLevel::INFO, "Hello, World!"));
   return 0;
 }
