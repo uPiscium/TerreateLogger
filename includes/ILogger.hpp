@@ -17,6 +17,7 @@ protected:
   LogFunc mWarningCallback;
   LogFunc mInfoCallback;
   LogFunc mDebugCallback;
+  LogFunc mTraceCallback;
 
 private:
   ILogger(ILogger const &) = delete;
@@ -37,6 +38,7 @@ public:
   }
   virtual void SetInfoCallback(LogFunc callback) { mInfoCallback = callback; }
   virtual void SetDebugCallback(LogFunc callback) { mDebugCallback = callback; }
+  virtual void SetTraceCallback(LogFunc callback) { mTraceCallback = callback; }
 
   virtual void Log(LogData const &log) = 0;
   virtual void Dump(Str const &path) = 0;
