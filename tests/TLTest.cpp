@@ -2,50 +2,13 @@
 
 using namespace TerreateLogger::Defines;
 using namespace TerreateLogger::Manager;
-using namespace TerreateLogger::Base;
-
-class BasicLogger : public ILogger {
-public:
-  BasicLogger() {}
-  ~BasicLogger() override {}
-
-  void Log(LogData const &log) override {
-    mLogs.push_back(log);
-    switch (log.level) {
-    case LogLevel::CRITICAL:
-      mCriticalCallback(log);
-      break;
-    case LogLevel::ERROR:
-      mErrorCallback(log);
-      break;
-    case LogLevel::WARNING:
-      mWarningCallback(log);
-      break;
-    case LogLevel::INFO:
-      mInfoCallback(log);
-      break;
-    case LogLevel::DEBUG:
-      mDebugCallback(log);
-      break;
-    default:
-      break;
-    }
-  }
-
-  void Dump(Str const &path) override {}
-};
-
-void Register() {
-  ILogger *logger = new BasicLogger();
-  logger->SetInfoCallback([](LogData const &log) {
-    std::cout << "INFO: " << log << std::endl;
-    return log;
-  });
-  LoggerManager::Register(logger);
-}
+using namespace TerreateLogger::Loggers;
 
 int main() {
-  Register();
-  LoggerManager::Log(TLLOG(LogLevel::INFO, "Hello, World!"));
+  LoggerManager::Register(new ConsoleLogger("ConsoleLogger"));
+  LoggerManager::Register(new FileLogger("FileLogger", "build/log.txt"));
+  LoggerManager::Log("Hello, World!");
+  LoggerManager::Log("This is a test message");
+  LoggerManager::Log("Goodbye, World!");
   return 0;
 }
