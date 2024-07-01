@@ -18,7 +18,7 @@ function(SetLibs)
 endfunction()
 
 function(Build)
-  add_library(${PROJECT_NAME} STATIC defines.cpp manager.cpp)
+  add_library(${PROJECT_NAME} STATIC loggers.cpp manager.cpp)
   set_target_properties(
     ${PROJECT_NAME} PROPERTIES ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib
                                LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
